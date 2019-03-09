@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+﻿
 package chatapp.networking;
 
 import java.io.IOException;
@@ -10,13 +6,10 @@ import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author toty
- */
+
 public class messagetransmitter extends Thread {
     String message,hostname;
-    int port; //اللي هبعتله
+    int port; //this is the reciver port
     public messagetransmitter() {
     }
    public static double getRandomNumber(){
@@ -43,15 +36,14 @@ public class messagetransmitter extends Thread {
 //    }
 try {
            waitMethod();
-            //waitMethod();
-        } catch (IOException ex) {
+    }
+ catch (IOException ex) {
             Logger.getLogger(messagetransmitter.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    //عشان يقدر يبعت الداتا كل وقت محدد 
     	public synchronized void waitMethod() throws IOException {
  int num=0;
-		while (num<10) //عشان ميستقبلش داتا كثير هم 10 بس
+		while (num<10) // we can change 10 by any number but we here recive till 10 messages bas
                 {
                     Socket s = new Socket(hostname, port);
                       
