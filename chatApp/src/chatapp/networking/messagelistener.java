@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+﻿
 package chatapp.networking;
 
 import java.io.BufferedReader;
@@ -15,16 +11,14 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author toty
- */
+
 public class messagelistener extends Thread{
     ServerSocket server;
-    int port=8877;// اللي انا واقفه فيه
-    writegui gui; //عشان يطبع في ال gui
-    
-    public static ArrayList<String>mess=new ArrayList<>(); //اللي بحط فيه المسدج بدل الكيو
+    int port=8877;
+    //port current node 
+    writegui gui;
+    //for gui print
+    public static ArrayList<String>mess=new ArrayList<>(); //array instid of queue
     
     public messagelistener (writegui gui,int port){
         this.port=port;
@@ -61,8 +55,8 @@ public class messagelistener extends Thread{
                    }
                   //System.out.println("heeikekeke");
                   System.out.println("message queue........");
-                for (int i = 0; i < mess.size(); i++) {
-                    System.out.println(mess.get(i));
+                for (int j = 0; j < mess.size(); j++) {
+                    System.out.println(mess.get(j));
                 }
                 }
             }
